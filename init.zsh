@@ -67,12 +67,19 @@ p6_teleport_prompt_info() {
   local user
   local valid
 
-  profile=$(tsh status | awk '/Profile/ {print $4}')
-  user=$(tsh status | awk '/Logged/ {print $4}')
-  valid=$(tsh status | grep Valid | sed -e 's,.*valid for ,,' -e 's,\]$,,')
+  valid=$(tsh status 2>&1 | grep Valid | sed -e 's,.*valid for ,,' -e 's,\]$,,')
+  case $valid in
+  *EXPIRED*) valid=Expired ;;
+  esac
 
   local str
-  str="teleport: u:$user p:$profile v:$valid"
+  user=$(tsh status 2>&1 | awk '/Logged/ {print $4}')
+  if ! p6_string_eq "$valid" "Expired"; then
+    profile=$(tsh status 2>&1 | awk '/Profile/ {print $4}')
+    str="teleport: u:$user p:$profile v:$valid"
+  else
+    str="teleport: u:$user EXPIRED"
+  fi
 
   p6_return_str "$str"
 }
