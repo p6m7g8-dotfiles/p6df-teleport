@@ -31,7 +31,20 @@ p6df::modules::teleport::external::brews() {
 #>
 ######################################################################
 p6df::modules::teleport::init() {
-  true
+
+  p6df::modules::teleport::prompt::init
+}
+
+######################################################################
+#<
+#
+# Function: p6df::modules::teleport::prompt::init()
+#
+#>
+######################################################################
+p6df::modules::teleport::prompt::init() {
+
+  p6df::core::prompt::line::add "p6df::modules::teleport::prompt::line"
 }
 
 #  tsh login --proxy=x:443 --auth=local --user=email
@@ -59,6 +72,8 @@ p6df::modules::teleport::prompt::line() {
 #  Returns:
 #	str - str
 #
+#  Depends:	 p6_string
+#  Environment:	 EXPIRED
 #>
 ######################################################################
 p6_teleport_prompt_info() {
