@@ -72,7 +72,6 @@ p6df::modules::teleport::prompt::line() {
 #  Returns:
 #	str - str
 #
-#  Depends:	 p6_string
 #  Environment:	 EXPIRED
 #>
 ######################################################################
@@ -91,9 +90,9 @@ p6_teleport_prompt_info() {
   user=$(tsh status 2>&1 | awk '/Logged/ {print $4}')
   if ! p6_string_eq "$valid" "Expired"; then
     profile=$(tsh status 2>&1 | awk '/Profile/ {print $4}')
-    str="teleport: u:$user p:$profile v:$valid"
+    str="teleport:\t  u:$user p:$profile v:$valid"
   else
-    str="teleport: u:$user EXPIRED"
+    str="teleport:\t  u:$user EXPIRED"
   fi
 
   p6_return_str "$str"
