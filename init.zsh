@@ -1,3 +1,4 @@
+# shellcheck shell=bash
 ######################################################################
 #<
 #
@@ -20,7 +21,9 @@ p6df::modules::teleport::deps() {
 ######################################################################
 p6df::modules::teleport::external::brews() {
 
-  brew install telport
+  brew install teleport
+
+  p6_return_void
 }
 
 ######################################################################
@@ -33,6 +36,8 @@ p6df::modules::teleport::external::brews() {
 p6df::modules::teleport::init() {
 
   p6df::modules::teleport::prompt::init
+
+  p6_return_void
 }
 
 ######################################################################
@@ -41,17 +46,17 @@ p6df::modules::teleport::init() {
 # Function: p6df::modules::teleport::prompt::init()
 #
 #>
+#/ Synopsis
+#/  tsh login --proxy=x:443 --auth=local --user=email
+#/  tsh db connect --db-user=teleport --db-name=fooc foo
+#/  tsh kube ls
+#/  tsh nodes ls
+#/  tsh ssh -f <id>
 ######################################################################
 p6df::modules::teleport::prompt::init() {
 
   p6df::core::prompt::line::add "p6df::modules::teleport::prompt::line"
 }
-
-#  tsh login --proxy=x:443 --auth=local --user=email
-#  tsh db connect --db-user=teleport --db-name=fooc foo
-#  tsh kube ls
-#  tsh nodes ls
-#  tsh ssh -f <id>
 
 ######################################################################
 #<
@@ -61,6 +66,7 @@ p6df::modules::teleport::prompt::init() {
 #>
 ######################################################################
 p6df::modules::teleport::prompt::line() {
+
   p6_teleport_prompt_info
 }
 
