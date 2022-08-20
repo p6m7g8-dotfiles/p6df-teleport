@@ -29,22 +29,12 @@ p6df::modules::teleport::external::brews() {
 ######################################################################
 #<
 #
-# Function: p6df::modules::teleport::init()
+# Function: str str = p6df::modules::teleport::prompt::line()
 #
-#>
-######################################################################
-p6df::modules::teleport::init() {
-
-  p6df::modules::teleport::prompt::init
-
-  p6_return_void
-}
-
-######################################################################
-#<
+#  Returns:
+#	str - str
 #
-# Function: p6df::modules::teleport::prompt::init()
-#
+#  Environment:	 EXPIRED
 #>
 #/ Synopsis
 #/  tsh login --proxy=x:443 --auth=local --user=email
@@ -53,35 +43,7 @@ p6df::modules::teleport::init() {
 #/  tsh nodes ls
 #/  tsh ssh -f <id>
 ######################################################################
-p6df::modules::teleport::prompt::init() {
-
-  p6df::core::prompt::line::add "p6df::modules::teleport::prompt::line"
-}
-
-######################################################################
-#<
-#
-# Function: p6df::modules::teleport::prompt::line()
-#
-#>
-######################################################################
 p6df::modules::teleport::prompt::line() {
-
-  p6_teleport_prompt_info
-}
-
-######################################################################
-#<
-#
-# Function: str str = p6_teleport_prompt_info()
-#
-#  Returns:
-#	str - str
-#
-#  Environment:	 EXPIRED
-#>
-######################################################################
-p6_teleport_prompt_info() {
 
   local profile
   local user

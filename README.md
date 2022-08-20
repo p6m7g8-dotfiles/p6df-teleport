@@ -46,10 +46,7 @@
 
 - p6df::modules::teleport::deps()
 - p6df::modules::teleport::external::brews()
-- p6df::modules::teleport::init()
-- p6df::modules::teleport::prompt::init()
-- p6df::modules::teleport::prompt::line()
-- str str = p6_teleport_prompt_info()
+- str str = p6df::modules::teleport::prompt::line()
 
 
 
