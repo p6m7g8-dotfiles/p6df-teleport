@@ -65,3 +65,37 @@ p6df::modules::teleport::prompt::line() {
 
   p6_return_str "$str"
 }
+
+######################################################################
+#<
+#
+# Function: p6df::modules::teleport::vscodes()
+#
+#>
+######################################################################
+p6df::modules::teleport::vscodes() {
+
+  code --install-extension gravitational.teleport-vscode
+
+  p6_return_void
+}
+
+######################################################################
+#<
+#
+# Function: p6df::modules::teleport::clones()
+#
+#  Environment:	 P6_DFZ_SRC_FOCUSED_DIR
+#>
+######################################################################
+p6df::modules::teleport::clones() {
+
+  p6_github_login_clone "gravitational" "$P6_DFZ_SRC_FOCUSED_DIR"
+
+  p6_return_void
+}
+
+# https://goteleport.com/
+# https://github.com/gravitational/teleport
+# https://github.com/gravitational/teleport-plugins
+# https://goteleport.com/docs/
