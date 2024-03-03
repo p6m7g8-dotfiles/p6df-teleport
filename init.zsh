@@ -56,28 +56,14 @@ p6df::modules::teleport::prompt::line() {
 
   local str
   user=$(tsh status 2>&1 | awk '/Logged/ {print $4}')
-  if ! p6_string_eq "$valid" "Expired"; then
+
+  if ! p6_string_blank "$valid" && ! p6_string_eq "$valid" "Expired"; then
     profile=$(tsh status 2>&1 | awk '/Profile/ {print $4}')
     str="teleport:\t  u:$user p:$profile v:$valid"
   else
-    str="teleport:\t  u:$user EXPIRED"
+    str=""
   fi
-
   p6_return_str "$str"
-}
-
-######################################################################
-#<
-#
-# Function: p6df::modules::teleport::vscodes()
-#
-#>
-######################################################################
-p6df::modules::teleport::vscodes() {
-
-  code --install-extension gravitational.teleport-vscode
-
-  p6_return_void
 }
 
 ######################################################################

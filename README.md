@@ -44,6 +44,7 @@
 
 #### p6df-teleport/init.zsh:
 
+- p6df::modules::teleport::clones()
 - p6df::modules::teleport::deps()
 - p6df::modules::teleport::external::brews()
 - str str = p6df::modules::teleport::prompt::line()
