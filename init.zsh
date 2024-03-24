@@ -21,7 +21,7 @@ p6df::modules::teleport::deps() {
 ######################################################################
 p6df::modules::teleport::external::brews() {
 
-  brew install teleport
+  p6df::modules::homebrew::cli::brew::install teleport
 
   p6_return_void
 }
@@ -54,15 +54,14 @@ p6df::modules::teleport::prompt::line() {
   *EXPIRED*) valid=Expired ;;
   esac
 
-  local str
+  local str=""
   user=$(tsh status 2>&1 | awk '/Logged/ {print $4}')
 
   if ! p6_string_blank "$valid" && ! p6_string_eq "$valid" "Expired"; then
     profile=$(tsh status 2>&1 | awk '/Profile/ {print $4}')
     str="teleport:\t  u:$user p:$profile v:$valid"
-  else
-    str=""
   fi
+
   p6_return_str "$str"
 }
 
