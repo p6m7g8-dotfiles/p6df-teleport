@@ -29,7 +29,7 @@ p6df::modules::teleport::external::brews() {
 ######################################################################
 #<
 #
-# Function: str str = p6df::modules::teleport::prompt::line()
+# Function: str str = p6df::modules::teleport::prompt::mod()
 #
 #  Returns:
 #	str - str
@@ -43,7 +43,7 @@ p6df::modules::teleport::external::brews() {
 #/  tsh nodes ls
 #/  tsh ssh -f <id>
 ######################################################################
-p6df::modules::teleport::prompt::line() {
+p6df::modules::teleport::prompt::mod() {
 
   local profile
   local user
