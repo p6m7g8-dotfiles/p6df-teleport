@@ -34,7 +34,6 @@ p6df::modules::teleport::external::brews() {
 #  Returns:
 #	str - str
 #
-#  Environment:	 EXPIRED
 #>
 #/ Synopsis
 #/  tsh login --proxy=x:443 --auth=local --user=email
