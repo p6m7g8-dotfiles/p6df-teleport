@@ -21,7 +21,7 @@ p6df::modules::teleport::deps() {
 ######################################################################
 p6df::modules::teleport::external::brews() {
 
-  p6df::modules::homebrew::cli::brew::install teleport
+  p6df::core::homebrew::cli::brew::install teleport
 
   p6_return_void
 }
