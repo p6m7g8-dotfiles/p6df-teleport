@@ -48,16 +48,16 @@ p6df::modules::teleport::prompt::mod() {
   local user
   local valid
 
-  valid=$(tsh status 2>&1 | grep Valid | sed -e 's,.*valid for ,,' -e 's,\]$,,')
+  valid=$(tsh status 2>&1 | p6_filter_row_select "Valid" | p6_filter_extract_after "valid for " | p6_filter_extract_before "]")
   case $valid in
   *EXPIRED*) valid=Expired ;;
   esac
 
   local str=""
-  user=$(tsh status 2>&1 | awk '/Logged/ {print $4}')
+  user=$(tsh status 2>&1 | p6_filter_row_select "Logged" | p6_filter_column_pluck 4)
 
   if ! p6_string_blank "$valid" && ! p6_string_eq "$valid" "Expired"; then
-    profile=$(tsh status 2>&1 | awk '/Profile/ {print $4}')
+    profile=$(tsh status 2>&1 | p6_filter_row_select "Profile" | p6_filter_column_pluck 4)
     str="teleport:\t  u:$user p:$profile v:$valid"
   fi
 
