@@ -56,7 +56,7 @@ p6df::modules::teleport::prompt::mod() {
   local str=""
   user=$(tsh status 2>&1 | p6_filter_row_select "Logged" | p6_filter_column_pluck 4)
 
-  if ! p6_string_blank "$valid" && ! p6_string_eq "$valid" "Expired"; then
+  if p6_string_blank_NOT "$valid" && ! p6_string_eq "$valid" "Expired"; then
     profile=$(tsh status 2>&1 | p6_filter_row_select "Profile" | p6_filter_column_pluck 4)
     str="teleport:\t  u:$user p:$profile v:$valid"
   fi
