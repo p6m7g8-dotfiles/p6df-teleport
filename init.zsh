@@ -74,7 +74,7 @@ p6df::modules::teleport::prompt::mod() {
 ######################################################################
 p6df::modules::teleport::clones() {
 
-  p6_github_login_clone "gravitational" "$P6_DFZ_SRC_FOCUSED_DIR"
+  p6_github_cli_parallel_clone "gravitational" "$P6_DFZ_SRC_FOCUSED_DIR"
 
   p6_return_void
 }
