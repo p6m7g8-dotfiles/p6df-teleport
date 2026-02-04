@@ -39,6 +39,7 @@ TODO: Add a short summary of this module.
 - `p6df::modules::teleport::deps()`
 - `p6df::modules::teleport::external::brews()`
 - `str str = p6df::modules::teleport::prompt::mod()`
+  - Synopsis: tsh login --proxy=x:443 --auth=local --user=email tsh db connect --db-user=teleport --db-name=fooc foo tsh kube ls tsh nodes ls tsh ssh -f <id>
 
 ## Hierarchy
 
