@@ -12,6 +12,10 @@ p6df::modules::teleport::deps() {
   )
 }
 
+# https://goteleport.com/
+# https://github.com/gravitational/teleport
+# https://github.com/gravitational/teleport-plugins
+# https://goteleport.com/docs/
 ######################################################################
 #<
 #
@@ -29,7 +33,7 @@ p6df::modules::teleport::external::brews() {
 ######################################################################
 #<
 #
-# Function: str str = p6df::modules::teleport::prompt::mod()
+# Function: str str = p6df::modules::teleport::prompt::context()
 #
 #  Returns:
 #	str - str
@@ -42,7 +46,7 @@ p6df::modules::teleport::external::brews() {
 #/  tsh nodes ls
 #/  tsh ssh -f <id>
 ######################################################################
-p6df::modules::teleport::prompt::mod() {
+p6df::modules::teleport::prompt::context() {
 
   local profile
   local user
@@ -78,8 +82,3 @@ p6df::modules::teleport::clones() {
 
   p6_return_void
 }
-
-# https://goteleport.com/
-# https://github.com/gravitational/teleport
-# https://github.com/gravitational/teleport-plugins
-# https://goteleport.com/docs/
